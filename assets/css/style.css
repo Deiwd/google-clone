@@ -1,0 +1,742 @@
+*
+{
+    box-sizing: border-box;
+}
+
+body
+{
+    margin: 0;
+    padding: 0;
+    font-size: 13px;
+    background: rgb(32, 33, 36);
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+h1, h2, h3, h4, h5, h6, ul, li, a, p
+{
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    color: currentColor;
+    text-decoration: none;
+}
+
+.navbar .nav-content,
+.nav-content > .user-links,
+.nav-content > .user-links > ul,
+.navbar .submenu > .submenu-content,
+.navbar .submenu > .submenu-content > .main-used,
+.navbar .submenu > .submenu-content li,
+.user-content > .submenu > .submenu-content > div,
+.user-content .user_account > .inf_user,
+.user-content .add_accounts .user,
+.user-content .add_accounts .add,
+#main,
+.search-content > .bar-content,
+.bar-content > .btn_access,
+.search-content > .action_search,
+#footer > .links,
+#footer > .links ul > li
+{
+    display: flex;
+}
+
+/* ------------------- [NAVBAR] ------------------- */
+/* ------------------------------------------------ */
+
+.navbar
+{
+    position: absolute;
+    padding: 10px 0;
+    width: 100%;
+    z-index: 99;
+    color: rgb(255, 255, 255);
+}
+
+.navbar .nav-content
+{
+    height: 100%;
+    justify-content: flex-end;
+}
+
+.nav-content > .user-links > ul
+{
+    height: 100%;
+    align-items: center;
+}
+.nav-content > .user-links > ul > li
+{
+    margin-right: 15px;
+}
+.nav-content > .user-links > ul > li > span
+{
+    cursor: pointer;
+}
+.nav-content > .user-links > ul > li > a:hover
+{
+    text-decoration: underline;
+}
+
+.navbar .services-content,
+.navbar .user-content
+{
+    position: relative;
+    z-index: 1;
+}
+
+
+.navbar .services-content::after
+{
+    content: '';
+    position: absolute;
+    display: none;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    background: rgb(68, 68, 68);
+    
+    z-index: -1;
+}
+
+.navbar .user-content::after{
+    content: '';
+    position: absolute;
+    display: none;
+    top: -3px;
+    left: -3px;
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    border: 3px solid rgb(68, 68, 68);
+
+    z-index: -1;
+}
+
+.navbar .services-content:hover::after,
+.navbar .user-content:hover::after
+{
+    display: block;
+}
+
+.navbar .services-content > .icon_services,
+.navbar .user-content > .picture_user
+{
+    display: block;
+    position: relative;
+    width: 35px;
+    height: 35px;
+    border-radius: 50%;
+}
+
+.navbar .services-content > .icon_services
+{
+    padding: 6px;
+}
+.navbar .services-content > .icon_services svg
+{
+    width: auto;
+    height: 100%;
+    fill: currentColor;
+}
+
+
+/******* [SUBMENU-CONTAINER] *******/
+.navbar .submenu
+{
+    display: none;
+    position: absolute;
+    top: 45px;
+    right: 0;
+    width: 313px;
+    padding: 10px;
+    border-radius: 10px;
+    background: rgb(53, 53, 53);
+    box-shadow: 0 0 6px rgb(0, 0, 0, .5);
+}
+.navbar .submenu::after
+{
+    content: '';
+    position: absolute;
+    top: -45px;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: transparent;
+    z-index: -1;
+}
+
+.navbar .services-content:hover > .submenu,
+.navbar .user-content:hover > .submenu
+{
+    display: block;
+}
+
+
+/******* [SUBMENU #1] *******/
+
+.navbar .services-content > .submenu > .submenu-content,
+.navbar .services-content > .submenu > .submenu-content > .main-used
+{
+    flex-wrap: wrap;
+    justify-content: space-around;
+}
+.navbar .services-content > .submenu > .submenu-content
+{
+    width: 100%;
+    height: 400px;
+    padding-right: 9px;
+    overflow-x: auto; 
+}
+
+.submenu-content::-webkit-scrollbar
+{
+    width: 8px; 
+}
+.submenu-content::-webkit-scrollbar-track
+{
+    background: transparent;
+}
+.submenu-content::-webkit-scrollbar-thumb
+{
+    background: rgb(112, 112, 112);
+    border-radius: 4px;
+}
+
+.navbar .services-content > .submenu > .submenu-content li
+{
+    justify-content: center;
+    flex-direction:  column;
+    align-items:     center;
+    width: 85px;
+    min-height: 85px;
+    border-radius: 5px;
+    margin-bottom: 5px;
+    cursor: pointer;
+    user-select: none;
+    -webkit-user-select: none;
+}
+.navbar .services-content > .submenu > .submenu-content > .main-used
+{
+    border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+    margin-bottom: 5px;
+}
+
+.navbar .services-content > .submenu > .submenu-content .picture_user
+{
+    border-radius: 50%;
+    overflow: hidden;
+}
+.navbar .services-content > .submenu > .submenu-content .picture_user img
+{
+    width: auto;
+    height: 100%;
+}
+
+.navbar .services-content > .submenu > .submenu-content li .icon
+{
+    width: 50px;
+    height: 50px;
+    background: url('../img/p1_4d827a84.png');
+    background-size: cover;
+}
+.navbar .services-content > .submenu > .submenu-content li .title
+{
+    width: 100%;
+    margin-top: 5px;
+    padding: 0 5px;
+    opacity: .9;
+    font-size: 1.1em;
+    overflow: hidden;
+    text-align: center;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}
+
+.navbar .services-content > .submenu > .submenu-content li:hover
+{
+    background: rgba(0, 0, 0, 0.2);
+}
+.navbar .services-content > .submenu > .submenu-content li:hover .title
+{
+    white-space: normal;
+}
+
+
+/******* [SUBMENU #2] *******/
+
+.navbar .user-content > .submenu
+{
+    width: 360px;
+    padding: 20px 25px;
+}
+
+.navbar .user-content > .picture_user,
+.navbar .user-content .user_account > .picture_user
+{
+    background: rgb(139, 139, 139);
+}
+.user-content .picture_user img
+{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 50%;
+}
+
+.navbar .user-content > .submenu button 
+{
+    margin: 18px auto 18px auto;
+    display: flex;
+    font-size: .9em;
+    font-weight: 600;
+    cursor: pointer;
+    padding: 10px 20px;
+    color: rgb(255,255,255);
+    background: transparent;
+    border: 1px solid rgba(255, 255, 255, 0.4);
+}
+.navbar .user-content > .submenu button:hover
+{
+    background: rgba(255, 255, 255, 0.1);
+}
+
+.user-content .submenu-content
+{
+    flex-direction: column;
+}
+.user-content .submenu-content > div
+{
+    border-bottom: 1px solid rgba(255, 255, 255, 0.4);
+}
+.user-content .submenu-content > div:last-child
+{
+    border: none;
+}
+
+.user-content .user_account
+{
+    align-items: center;
+    flex-direction: column;
+}
+.user-content .user_account > .picture_user
+{
+    position: relative;
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    margin-bottom: 18px;
+}
+.user-content .user_account > .picture_user > .change-picture
+{
+    position: absolute;
+    bottom: -5px;
+    right: -5px;
+    width: 30px;
+    height: 30px;
+    padding: 4.5px;
+    cursor: pointer;
+    border-radius: 50%;
+    background: rgb(53, 53, 53);
+    box-shadow: 0 0 3px rgba(0, 0, 0, .6);
+}
+.picture_user > .change-picture > span
+{
+    fill: currentColor;
+}
+.picture_user > .change-picture > span svg
+{
+    width: auto;
+    height: 100%;
+}
+.user-content .user_account > .picture_user > .change-picture:hover
+{
+    background: rgb(63, 63, 63);
+}
+.picture_user > .change-picture:hover > span
+{
+    fill: rgb(68, 138, 204);
+}
+
+.user-content .user_account > .inf_user
+{
+    flex-direction: column;
+    align-items: center;
+}
+.user-content .user_account > .inf_user .name
+{
+    font-size: 1.1em;
+    font-weight: 600;
+}
+.user-content .user_account button
+{
+    border-radius: 25px;
+}
+
+.user-content .add_accounts
+{
+    flex-direction: column;
+}
+.user-content .add_accounts .user > .picture_user,
+.user-content .add_accounts .add > span
+{
+    width: 30px;
+    height: 30px;
+    margin-right: 10px;
+}
+.user-content .add_accounts .user > .picture_user
+{
+    background: rgb(180, 180, 180);
+    border-radius: 50%;
+}
+.user-content .add_accounts .user > .inf_user .name
+{
+    font-weight: 600;
+}
+.user-content .add_accounts .user > .inf_user .email
+{
+    font-size: .9em;
+    letter-spacing: 0.4px;
+    opacity: .8;
+}
+.user-content .add_accounts .add
+{
+    align-items: center;
+    font-weight: 600;
+}
+.user-content .add_accounts .add > span
+{
+    padding: 4px;
+    margin-left: 5px;
+    fill: currentColor;
+}
+.user-content .add_accounts .user,
+.user-content .add_accounts .add,
+.user-content .terms
+{
+    padding: 12px 0;
+}
+.user-content .add_accounts .user:hover,
+.user-content .add_accounts .add:hover,
+.user-content .terms a:hover
+{
+    cursor: pointer;
+    background: rgba(255, 255, 255, 0.1);
+}
+
+.user-content .log-out_account button
+{
+    border-radius: 4px;
+}
+
+.user-content .terms
+{
+    font-size: .8em;
+    font-weight: 600;
+    padding-bottom: 0;
+    justify-content:space-evenly
+}
+.user-content .terms a
+{
+    margin-top: 5px;
+    padding: 4px 6px;
+    border-radius: 3px;
+}
+
+
+
+/* ------------------- [BAR SEARCH] ------------------- */
+/* ---------------------------------------------------- */
+
+#main
+{
+    justify-content: center;
+    height: 100vh;
+}
+
+.search-content
+{
+    margin-top: 60px;
+}
+
+
+/******* [LOGO] *******/
+
+.search-content > .logo
+{
+    text-align: center;
+    height: 180px;
+}
+.search-content > .logo img
+{
+    height: 100%;
+}
+
+
+/******* [BAR] *******/
+
+.search-content > .bar-content
+{
+    position: relative;
+    align-items: center;
+    border-radius: 24px;
+    border: 1px solid rgba(255, 255, 255, 0.5);
+    z-index: 1;
+}
+.bar-content .icon
+{
+    width: 30px;
+    height: 30px;
+    padding: 5px;
+    border-radius: 50%;
+}
+.bar-content .icon svg
+{
+    fill: rgba(255, 255, 255, 0.5);
+}
+.bar-content > .btn_search
+{
+    margin: 0 5px;
+}
+.bar-content > .btn_access
+{
+    margin: 0 5px;
+    border-left: 2px solid transparent;
+}
+.bar-content > .btn_access > .icon
+{
+    margin-left: 10px;
+    cursor: pointer;
+}
+
+.bar-content > .search_bar
+{
+    white-space: nowrap;
+    width: 440px;
+    outline: none;
+    padding: 12px 0;
+    overflow: hidden;
+    font-size: 1.3em;
+    color: rgb(255, 255, 255);
+    z-index: 2;
+}
+.search_bar:focus + .btn_access
+{
+    border-color: rgba(255,255,255,.5);
+}
+.search_bar:focus ~ .bar-bg,
+.search_bar:hover ~ .bar-bg
+{
+    display: block;
+}
+
+.bar-bg
+{
+    display: none;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border-radius: inherit;
+    background: rgba(255,255,255,.1);
+    z-index: -1;
+}
+
+
+/******* [BUTTONS] *******/
+
+.search-content > .action_search
+{
+    justify-content: center;
+}
+.action_search > button
+{
+    border-radius: 5px;
+    padding: 10px 15px;
+    color: rgb(255, 255, 255);
+    background: rgba(255, 255, 255, 0.1);
+    border: 1px solid rgba(255, 255, 255, .04);
+    cursor: pointer;
+}
+.action_search > button:hover
+{
+    border-color: rgba(255,255,255,.2);
+}
+.action_search > button:first-child
+{
+    margin-right: 10px;
+}
+
+
+/******* [LANG PAGE] *******/
+
+.search-content > .lang-page
+{
+    text-align: center;
+    color: rgb(255,255,255);
+}
+.search-content > .lang-page a
+{
+    color: rgb(136, 161, 243);
+}
+.search-content > .lang-page a:hover
+{
+    text-decoration: underline;
+}
+
+.search-content > div
+{
+    margin-bottom: 20px;
+}
+
+
+/* ------------------- [FOOTER] ------------------- */
+/* ------------------------------------------------ */
+
+#footer
+{
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    font-size: 1.2em;
+    background:rgba(0, 0, 0, .3);
+    color: rgba(255,255,255,.6);
+}
+
+#footer > div
+{
+    margin: 0 30px;
+}
+#footer > div:first-child
+{
+    border-bottom: 1px solid rgba(255,255,255,.05);
+}
+
+#footer > .links
+{
+    justify-content: space-between;
+    font-size: .9em;
+}
+#footer > .links ul > li
+{
+    float: left;
+}
+#footer > .country,
+#footer > .links a
+{
+    padding: 14px 0px;
+}
+#footer > .links a:hover
+{
+    text-decoration: underline;
+}
+
+#footer > .links ul:first-child li
+{
+    margin-right: 20px;
+}
+#footer > .links ul:last-child li
+{
+    margin-left: 20px;
+}
+
+
+
+/* ------------------- [RESPONSIVE] ------------------- */
+/* ---------------------------------------------------- */
+
+@media only screen and (max-width: 600px)
+{
+    .navbar .services-content,
+    .navbar .user-content,
+    .navbar .services-content > .icon_services, 
+    .navbar .user-content > .picture_user
+    {
+        position: unset;
+    }
+    .navbar .services-content::after,
+    .navbar .user-content::after
+    {
+        display: none !important;
+    }
+
+    .navbar .submenu
+    {
+        margin: 0 auto;
+        top: 55px;
+        left: 0;
+        right: none;
+        width: 95%;
+    }
+    .navbar .user-content > .submenu
+    {
+        width: 95%;
+    }
+
+    .search-content > .logo
+    {
+        height: 30vw;
+    }
+    .bar-content > .search_bar
+    {
+        width: 55vw;
+    }
+    .search-content > .lang-page
+    {
+        font-size: 3vw;
+    }
+
+    #footer > div:first-child
+    {
+        text-align: center;
+    }
+    #footer > .links
+    {
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+    }
+}
+
+@media only screen and (max-width: 320px)
+{
+    .search-content > .action_search
+    {
+        flex-direction: column;
+        align-items: center;
+    }
+    .action_search > button:first-child
+    {
+        margin-right: 0;
+        margin-bottom: 10px;
+    }
+
+    #footer > .links ul:first-child
+    {
+        display: flex;
+        flex-direction: column;
+    }
+}
+
+@media only screen and (max-width: 300px)
+{
+    .bar-content > .search_bar
+    {
+        width: 40vw;
+    }
+
+    #footer > .links ul
+    {
+        display: flex;
+        align-items: center;
+        flex-direction: column;
+    }
+    #footer > .links ul:first-child li,
+    #footer > .links ul:last-child li
+    {
+        margin: 0;
+    }
+}
